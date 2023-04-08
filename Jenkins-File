@@ -13,7 +13,7 @@ pipeline {
    
       stage ('scm-checkout') {
          steps {
-            //   checkout scmGit(branches: [[name: '*/feat01']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds-jyothika', url: 'https://github.com/whatsapp-jyo/mavenrepo.git']])
+            //   checkout scmGit(branches: [[name: '*/feat01']], extensions: [], userRemoteConfigs: [[ url: 'https://github.com/Devopssampleproject/chatting.git']])
              sh 'echo "my first pipeline" '
           }
       }         //scm stage completes here
