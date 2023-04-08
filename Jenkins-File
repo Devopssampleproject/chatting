@@ -1,0 +1,54 @@
+pipeline {
+
+   agent {
+        label 'jenkins-agent'
+   }
+
+   triggers {
+      pollSCM '* * * * * '
+   }
+
+   stages {
+   
+      stage ('scm-checkout') {
+         steps {
+            //   checkout scmGit(branches: [[name: '*/feat01']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds-jyothika', url: 'https://github.com/whatsapp-jyo/mavenrepo.git']])
+            sh ' echo "my first pipeline" '
+          }
+      }         //scm stage completes here
+      
+      stage ('mvn build') {
+          steps{
+              // sh ' mvn package '
+                 sh ' "echo this is biuld stage" '
+            }
+      }       //build stage completes here
+
+      stage ('code quality') {
+          steps{
+              // withSonarQubeEnv(credentialsId: 'sonar-jenkins-token-jyo', installationName: 'sonar-server-jyo') {
+    // some block
+              // sh ' mvn sonar:sonar '
+                sh ' "echo this is sonar  stage" '
+                 }
+           }
+      }       //sonar stage completes here
+
+      stage ('upload artifact') {
+          steps{
+              // sh ' mvn deploy '
+              sh ' "echo this is deploy stage wheere the war file is uploaded" '
+            }
+      }       //artifact upload stage completes here
+
+      stage ('deploy artifact ') {
+          steps{
+             // sh ' scp /root/workspace/whattsapp/chatting/build/sample-dev/target/studentapp-2.1.1-FEAT01-SNAPSHOT.war root@172.31.1.252:/opt/apache-tomcat-10.0.23/webapps '
+              sh ' "echo this is where war file is installedstage" '
+            }
+      }       //artifact upload stage completes here
+      
+
+   }         //all stages complete here
+
+}            //pipeline completes here
