@@ -14,7 +14,7 @@ pipeline {
       stage ('scm-checkout') {
          steps {
             //   checkout scmGit(branches: [[name: '*/feat01']], extensions: [], userRemoteConfigs: [[ url: 'https://github.com/Devopssampleproject/chatting.git']])
-             sh 'echo "my first pipeline in branch, $BRANCH_NAME" '
+             sh 'echo "my first pipeline in branch, $buil_job" '
           }
       }         //scm stage completes here
       
