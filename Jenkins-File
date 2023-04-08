@@ -30,7 +30,7 @@ pipeline {
     // some block
               // sh ' mvn sonar:sonar '
                 sh ' "echo this is sonar  stage" '
-                 }
+                 //}
            }
       }       //sonar stage completes here
 
