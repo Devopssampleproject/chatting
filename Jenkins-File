@@ -1,11 +1,12 @@
 pipeline {
 
-   agent {
-        label 'jenkins-agent'
-   }
+   agent any //{
+       // label 'jenkins-agent'
+       // any
+ //  }
 
    triggers {
-      pollSCM '* * * * * '
+      pollSCM ' * * * * * '
    }
 
    stages {
